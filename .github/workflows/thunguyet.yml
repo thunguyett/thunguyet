@@ -1,11 +1,11 @@
 name: thunguyet
 
-on: workflow_dispatch
+on: [push, workflow_dispatch]
 
 jobs:
   build:
 
-    runs-on: windows-latest
+    runs-on: windows-2022
 
     steps:
     - name: Download install Ngrok
@@ -26,4 +26,4 @@ jobs:
     - name: All done. Show user and pass VPS
       run: | 
         cmd /c NGROK-CHECK.bat
-        .\ngrok\ngrok.exe tcp 3389
+        .\ngrok\ngrok.exe tcp --region jp 3389
